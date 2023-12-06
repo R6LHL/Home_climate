@@ -13,6 +13,14 @@
 #include "Setup.hpp"
 #include "Tasks.hpp"
 
+#define CO2_ENABLE
+#define LCD_ENABLE
+//#define ENCODER_ENABLE
+//#define BME280_ENABLE
+//#define DS3231_ENABLE
+//#define POWER_MANAGEMENT_ENABLE
+//#define MENU_ENABLE
+
 using pin_number = const uint8_t;
 using addr_8bit = const uint8_t;
 using TaskManager_delay = const uint16_t;

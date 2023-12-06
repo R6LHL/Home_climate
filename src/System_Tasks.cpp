@@ -1,11 +1,11 @@
 #include "Tasks.hpp"
-
+#ifdef POWER_MANAGEMENT_ENABLE
 void Tasks::System::periph_power_on(void)
 {
     Serial.println(F("Wake up Neo..."));
     digitalWrite(SENS_PWR_CTRL_PIN, HIGH);
 
-    OS.SetTask_(Display::print_Time, POWER_UP_DELAY);
+    OS.SetTask_(Tasks::Display::print_time, POWER_UP_DELAY);
 }
 
 void Tasks::System::periph_power_off(void)
@@ -49,3 +49,4 @@ void Tasks::System::wakeUp_Prepare(void)
 
     OS.SetTask_(Tasks::System::periph_power_on, POWER_UP_DELAY);
 }
+#endif //POWER_MANAGEMENT_ENABLE

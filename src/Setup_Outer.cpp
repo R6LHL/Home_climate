@@ -3,6 +3,7 @@
 #include "Setup.hpp"
 #include <DS3231_RTC.hpp>
 
+#ifdef POWER_MANAGEMENT_ENABLE
 /*! @brief Отключение питания датчиков, кроме СО2
 */
 void Setup::Outer_periph::Power::Sens_Down(void){
@@ -14,7 +15,9 @@ void Setup::Outer_periph::Power::Sens_Down(void){
 void Setup::Outer_periph::Power::Sens_Up(void){
     digitalWrite(SENS_PWR_CTRL_PIN, HIGH);
 }
+#endif //POWER_MANAGEMENT_ENABLE
 
+#ifdef CO2_ENABLE
 /*! @brief Выключение питания датчика СО2
 */
 void Setup::Outer_periph::Power::CO2_Sens_Down(void){
@@ -26,6 +29,7 @@ void Setup::Outer_periph::Power::CO2_Sens_Down(void){
 void Setup::Outer_periph::Power::CO2_Sens_Up(void){
     digitalWrite(CO2_SENS_PWR_CTRL_PIN, HIGH);
 }
+#endif //CO2_ENABLE
 
 /*! @brief Настройка пинов контроллера
 */
@@ -38,6 +42,7 @@ void Setup::Outer_periph::IO_pins(void){
     pinMode(ENCODER_B_PIN, INPUT_PULLUP);
 }
 
+#ifdef DS3231_ENABLE
 /*! @brief Установка часов на прерывание в 00 и 30 минут каждый час
 */
 void Setup::Outer_periph::RTC(void){
@@ -77,3 +82,5 @@ void Setup::Outer_periph::RTC(void){
     DS3231_RTC::Alarm1Minutes::set_Value(30);
 
 }
+
+#endif // DS3231_ENABLE

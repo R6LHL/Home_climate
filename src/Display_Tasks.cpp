@@ -1,5 +1,8 @@
 #include "Tasks.hpp"
 
+#ifdef LCD_ENABLE
+
+#ifdef DS3231_ENABLE
 void Tasks::Display::print_time(void)
 {
     uint8_t hours = DS3231_RTC::Hours::get_Value();
@@ -58,7 +61,12 @@ void Tasks::Display::print_date(void)
     OS.SetTask_(System::periph_power_off, DO_NOW);
 }
 
+#endif //DS3231_ENABLE
+
+#ifdef CO2_ENABLE
 void Tasks::Display::print_CO2(void)
 {
     
 }
+#endif //CO2_ENABLE
+#endif //LCD_ENABLE
