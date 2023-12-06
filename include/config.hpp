@@ -20,6 +20,8 @@
 //#define DS3231_ENABLE
 //#define POWER_MANAGEMENT_ENABLE
 //#define MENU_ENABLE
+//#define LEDs_ENABLE
+//#define BUZZER_ENABLE
 
 using pin_number = const uint8_t;
 using addr_8bit = const uint8_t;

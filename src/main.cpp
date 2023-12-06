@@ -42,6 +42,7 @@ void setup() {
   #endif // POWER_MANAGEMENT_ENABLE
 
   #ifdef CO2_ENABLE
+  Serial.begin(USART_BAUDRATE);
   OS.SetTask_(Tasks::Sensors::get_CO2, DO_NOW);
   #endif //CO2_ENABLE
 }
